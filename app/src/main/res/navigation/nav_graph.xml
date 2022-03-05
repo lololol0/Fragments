@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragmentFirst">
+
+    <fragment
+        android:id="@+id/fragmentFirst"
+        android:name="com.example.fragments.FragmentFirst"
+        android:label="first"
+        tools:layout="@layout/fragment_first" >
+        <action
+            android:id="@+id/action_fragmentFirst_to_fragmentSecond"
+            app:destination="@id/fragmentSecond"
+            app:enterAnim="@anim/slide_in_right"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/fragmentLast"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentSecond"
+        android:name="com.example.fragments.FragmentSecond"
+        android:label="second"
+        tools:layout="@layout/fragment_second" >
+        <action
+            android:id="@+id/action_fragmentSecond_to_fragmentThird"
+            app:destination="@id/fragmentThird"
+            app:popUpTo="@id/fragmentFirst"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentThird"
+        android:name="com.example.fragments.FragmentThird"
+        android:label="third"
+        tools:layout="@layout/fragment_third" >
+        <action
+            android:id="@+id/action_fragmentThird_to_fragmentLast"
+            app:destination="@id/fragmentLast"
+            app:popUpTo="@id/fragmentSecond"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentLast"
+        android:name="com.example.fragments.FragmentLast"
+        android:label="last"
+        tools:layout="@layout/fragment_last" >
+        <action
+            android:id="@+id/action_fragmentLast_to_fragmentFirst"
+            app:destination="@id/fragmentFirst"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/fragmentThird"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>
